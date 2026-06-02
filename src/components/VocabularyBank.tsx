@@ -123,7 +123,7 @@ export const VocabularyBank: React.FC<VocabularyBankProps> = ({
           </div>
 
           {/* Quick filter tabs */}
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex overflow-x-auto pb-1.5 lg:pb-0 lg:overflow-x-visible items-center gap-2 w-full lg:w-auto scrollbar-none whitespace-nowrap">
             <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mr-1 hidden sm:inline">Filters:</span>
             {[
               { id: 'all', label: 'All Words' },
@@ -143,7 +143,7 @@ export const VocabularyBank: React.FC<VocabularyBankProps> = ({
                     setActiveFilter(tab.id);
                     setCurrentPage(1);
                   }}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-all cursor-pointer ${
+                  className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-all cursor-pointer inline-block shrink-0 ${
                     isActive
                       ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/20'
                       : 'bg-zinc-800 text-zinc-300 border border-zinc-700 hover:bg-zinc-750 hover:text-zinc-100'
@@ -272,20 +272,21 @@ export const VocabularyBank: React.FC<VocabularyBankProps> = ({
                         </span>
                       </div>
 
-                      {/* 3. Answer Field */}
-                      <div className="col-span-4 flex flex-col md:flex-row md:items-baseline md:gap-1.5">
-                        <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wide md:hidden">Answer:</span>
-                        <span className="text-sm font-medium text-indigo-300 font-mono bg-indigo-950/20 md:bg-transparent rounded px-1.5 py-0.5 md:p-0">
-                          {word.answer}
-                        </span>
-                      </div>
+                      {/* 3. Answer Field & 4. Bengali Translation grouped for mobile */}
+                      <div className="col-span-6 flex flex-col md:contents">
+                        <div className="flex items-center justify-between md:justify-start gap-1.5 md:col-span-4">
+                          <span className="text-2xs font-bold text-zinc-500 uppercase tracking-wide md:hidden">Answer:</span>
+                          <span className="text-sm font-semibold text-indigo-300 font-mono bg-indigo-950/20 md:bg-transparent rounded px-1.5 py-0.5 md:p-0">
+                            {word.answer}
+                          </span>
+                        </div>
 
-                      {/* 4. Bengali translation */}
-                      <div className="col-span-2 flex flex-col md:flex-row md:items-baseline md:gap-1.5 md:col-span-2">
-                        <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wide md:hidden">Bengali:</span>
-                        <span className="text-sm text-zinc-300 font-medium font-display">
-                          {word.bengali}
-                        </span>
+                        <div className="flex items-center justify-between md:justify-start gap-1.5 md:col-span-2 pt-1 md:pt-0">
+                          <span className="text-2xs font-bold text-zinc-500 uppercase tracking-wide md:hidden">Bengali:</span>
+                          <span className="text-sm text-zinc-300 font-medium font-display bg-zinc-900 md:bg-transparent px-1.5 py-0.5 md:p-0 rounded border border-zinc-805 md:border-none">
+                            {word.bengali}
+                          </span>
+                        </div>
                       </div>
 
                       {/* 5. Star & Complete Action buttons */}

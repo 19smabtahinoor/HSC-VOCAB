@@ -1,0 +1,24 @@
+{
+  "short_name": "HSC Vocab",
+  "name": "HSC English Vocabulary Prep Companion",
+  "description": "Your ultimate study partner for preparing Question 11 of the HSC English 2nd Paper.",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#09090B",
+  "theme_color": "#4f46e5",
+  "display": "standalone",
+  "orientation": "portrait"
+}

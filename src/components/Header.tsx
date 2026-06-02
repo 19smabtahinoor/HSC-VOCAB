@@ -124,8 +124,8 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </div>
 
-          {/* Card 4: Action helper note */}
-          <div className="rounded-3xl border border-indigo-900/30 bg-indigo-950/15 p-4 transition-all hover:bg-indigo-950/25 md:p-5">
+          {/* Card 4: Action helper note - hidden on mobile */}
+          <div className="hidden sm:block rounded-3xl border border-indigo-900/30 bg-indigo-950/15 p-4 transition-all hover:bg-indigo-950/25 md:p-5">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 min-w-10 items-center justify-center rounded-xl bg-indigo-900/40 text-indigo-400">
                 <ShieldQuestion className="h-5 w-5" />

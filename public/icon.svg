@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="indigoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#4338ca" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="128" fill="url(#indigoGrad)" />
+  
+  <!-- Outer Book Wrapper -->
+  <g transform="translate(96, 96)">
+    <!-- Book Base pages stack -->
+    <rect x="15" y="45" width="290" height="250" rx="20" fill="#e2e8f0" />
+    <!-- Book Spine/Cover details -->
+    <rect x="0" y="30" width="290" height="250" rx="24" fill="#ffffff" />
+    
+    <!-- Accent Line details inside Book -->
+    <line x1="50" y1="90" x2="240" y2="90" stroke="#4f46e5" stroke-width="18" stroke-linecap="round" />
+    <line x1="50" y1="145" x2="240" y2="145" stroke="#4f46e5" stroke-width="18" stroke-linecap="round" />
+    <line x1="50" y1="200" x2="160" y2="200" stroke="#4f46e5" stroke-width="18" stroke-linecap="round" />
+  </g>
+</svg>
