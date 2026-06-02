@@ -135,7 +135,7 @@ export default function App() {
     }
   });
 
-  const [liveLikes, setLiveLikes] = useState<number>(97);
+  const [liveLikes, setLiveLikes] = useState<number>(0);
 
   // PWA installation & Offline status states
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);

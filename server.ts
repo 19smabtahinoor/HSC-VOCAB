@@ -61,7 +61,7 @@ async function startServer() {
     try {
       const dbPool = getPool();
       const result = await dbPool.query("SELECT COUNT(*) FROM hsc_users WHERE liked = true");
-      const totalLikes = (parseInt(result.rows[0].count, 10) || 0) + 97;
+      const totalLikes = parseInt(result.rows[0].count, 10) || 0;
       res.json({ success: true, totalLikes });
     } catch (err: any) {
       console.error("Error in /api/likes/stats:", err);
@@ -138,7 +138,7 @@ async function startServer() {
 
       // Fetch new count of total likes
       const statsResult = await dbPool.query("SELECT COUNT(*) FROM hsc_users WHERE liked = true");
-      const totalLikes = (parseInt(statsResult.rows[0].count, 10) || 0) + 97;
+      const totalLikes = parseInt(statsResult.rows[0].count, 10) || 0;
 
       res.json({
         success: true,
