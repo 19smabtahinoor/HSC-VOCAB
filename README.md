@@ -1,20 +1,34 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 📘 HSC Vocab
 
-# Run and deploy your AI Studio app
+An elite, high-contrast **Bento Grid** styled interactive prep engine crafted for students preparing for **Question No. 11 (Synonyms & Antonyms)** of the **HSC English 2nd Paper** national syllabus board. 
 
-This contains everything you need to run your app locally.
+Equipped with dual-language resources (English and Bengali), interactive audio pronunciation support, dynamic flashcard suites, custom revision filters, offline printing capabilities, and a full mock exam generator.
 
-View your app in AI Studio: https://ai.studio/apps/6c767a4a-5cfe-45e6-bb42-adf9da008723
+---
 
-## Run Locally
+## ✨ Features
 
-**Prerequisites:**  Node.js
+- 🗃️ **Syllabus Bank**: A comprehensive dataset mapped directly to board targets. Search, filter by synonyms/antonyms, bookmark key items, and track your mastered words.
+- 🎴 **Flashcard Suite**: Interactive 3D flip-cards with rating metrics (*Still Practicing* vs. *Mastered*), support for voice synthesizer pronunciation, and seamless keyboard navigation (spacebar to flip, arrow keys to switch).
+- 🏆 **Quiz Arena**: Tailored simulation quizzes where students can customize categories, selection amounts, and test their preparation. Real-time feedback and detailed scorecard logs.
+- 🖨️ **Academic Revision Sheet Printer**: Export beautifully formatted exam revision sheets directly to PDF or standard physical paper format with a single click.
+- 🎨 **Bento Grid Design & Dark Canvas**: A high-contrast dark aesthetic that reduces eye strain during late-night revision sessions.
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 🛠️ Technology Stack
+
+- **Framework**: React 18+ with TypeScript
+- **Bundler**: Vite
+- **Styling**: Tailwind CSS
+- **Iconography**: Lucide React
+- **Voice System**: Web Speech API Synthesis for localized correct English pronunciation
+
+---
+
+## 👨‍💻 Developer Information
+
+This application is designed, developed, and maintained with care to boost HSC preparation outcomes for board candidates nationwide.
+
+- **Developer**: **S.M.Abtahi Noor**
+- **Official Portfolio / Website**: [smabtahinoor.vercel.app](https://smabtahinoor.vercel.app/)
