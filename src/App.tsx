@@ -135,7 +135,7 @@ export default function App() {
     }
   });
 
-  const [liveLikes, setLiveLikes] = useState<number>(0);
+  const [liveLikes, setLiveLikes] = useState<number>(97);
 
   // PWA installation & Offline status states
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -223,6 +223,26 @@ export default function App() {
       })
       .catch((err) => console.error('Failed to synchronize likes from Neon DB:', err));
   }, []);
+
+  // Synchronize dynamic user likes profile directly from database, bypassing stale local storage
+  useEffect(() => {
+    if (userProfile?.email) {
+      fetch(`/api/users/profile?email=${encodeURIComponent(userProfile.email)}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success && data.user) {
+            const updated = {
+              name: data.user.name,
+              email: data.user.email,
+              liked: data.user.liked
+            };
+            setUserProfile(updated);
+            localStorage.setItem('hsc_user_profile', JSON.stringify(updated));
+          }
+        })
+        .catch((err) => console.error('Failed to sync profile status from DB:', err));
+    }
+  }, [userProfile?.email]);
 
   // Sync state managers with localStorage for persistent revision tracking
   const [starredIds, setStarredIds] = useState<string[]>(() => {
@@ -633,7 +653,7 @@ export default function App() {
 
             <div className="flex items-center gap-2 bg-rose-500/5 border border-rose-500/15 px-3.5 py-1.5 rounded-full text-rose-400 text-xs font-bold shadow-md shadow-rose-950/20">
               <span className="flex h-2 w-2 rounded-full bg-rose-500 animate-pulse" />
-              <span>Loved by <b className="font-mono text-white text-sm bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded-md ml-1 mr-1">{97 + liveLikes}</b> users</span>
+              <span>Loved by <b className="font-mono text-white text-sm bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded-md ml-1 mr-1">{liveLikes}</b> users</span>
             </div>
 
             <div className="text-zinc-500 text-center sm:text-right">

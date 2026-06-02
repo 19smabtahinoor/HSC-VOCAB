@@ -61,10 +61,30 @@ async function startServer() {
     try {
       const dbPool = getPool();
       const result = await dbPool.query("SELECT COUNT(*) FROM hsc_users WHERE liked = true");
-      const totalLikes = parseInt(result.rows[0].count, 10) || 0;
+      const totalLikes = (parseInt(result.rows[0].count, 10) || 0) + 97;
       res.json({ success: true, totalLikes });
     } catch (err: any) {
       console.error("Error in /api/likes/stats:", err);
+      res.status(500).json({ success: false, error: err.message });
+    }
+  });
+
+  // API: Get user profile details (to avoid outdated localStorage liked status)
+  app.get("/api/users/profile", async (req, res) => {
+    const { email } = req.query;
+    if (!email) {
+      return res.status(400).json({ success: false, error: "Email is required" });
+    }
+    try {
+      const dbPool = getPool();
+      const result = await dbPool.query("SELECT name, email, liked FROM hsc_users WHERE email = $1", [String(email).trim().toLowerCase()]);
+      if (result.rows.length > 0) {
+        res.json({ success: true, user: result.rows[0] });
+      } else {
+        res.json({ success: false, error: "User not found" });
+      }
+    } catch (err: any) {
+      console.error("Error in /api/users/profile:", err);
       res.status(500).json({ success: false, error: err.message });
     }
   });
@@ -118,7 +138,7 @@ async function startServer() {
 
       // Fetch new count of total likes
       const statsResult = await dbPool.query("SELECT COUNT(*) FROM hsc_users WHERE liked = true");
-      const totalLikes = parseInt(statsResult.rows[0].count, 10) || 0;
+      const totalLikes = (parseInt(statsResult.rows[0].count, 10) || 0) + 97;
 
       res.json({
         success: true,
