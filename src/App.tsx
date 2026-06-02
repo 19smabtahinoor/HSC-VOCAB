@@ -247,7 +247,15 @@ export default function App() {
       <footer className="w-full border-t border-zinc-800 bg-[#09090B] py-6 mt-12 print:hidden">
         <div className="mx-auto max-w-7xl px-4 text-center space-y-1.5 md:flex md:items-center md:justify-between md:space-y-0 sm:px-6 lg:px-8">
           <p className="text-xs text-zinc-500">
-            &copy; 2026 HSC English Companion. Developed for National Syllabus Boards.
+            &copy; 2026 HSC English Companion. Developed by{" "}
+            <a
+              href="https://smabtahinoor.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors underline decoration-indigo-500/30 underline-offset-2"
+            >
+              S.M.Abtahi Noor
+            </a>
           </p>
           <div className="flex justify-center gap-4 text-xs font-semibold text-zinc-500">
             <span>Question Number 11 Study Module</span>
