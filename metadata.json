@@ -1,0 +1,6 @@
+{
+  "name": "HSC Synonym & Antonym Prep",
+  "description": "Comprehensive interactive study companion, flashcard suite, and dynamic practice quiz for the HSC English 2nd Paper (Question 11) with over 300 entries and bilingual meanings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
